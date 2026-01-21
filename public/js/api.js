@@ -5,7 +5,7 @@ const isLocal =
 
 const API_BASE = isLocal
   ? 'http://localhost:5000/api'
-  : '/api';
+  : 'https://food-app-945m.onrender.com/api';
 
 console.log('API Base:', API_BASE);
 
