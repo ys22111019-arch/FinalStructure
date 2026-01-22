@@ -22,13 +22,11 @@ const PORT = process.env.PORT || 5000;
 const publicPath = path.join(__dirname, '..', 'public');
 
 // ===== MIDDLEWARE =====
-// Allow all origins in non-production (helps Postman/dev). In production,
-// keep the stricter origin list to reduce exposure.
-if (process.env.NODE_ENV !== 'production') {
-  app.use(cors());
-} else {
-  app.use(cors({ origin: ['http://localhost:3000'], credentials: true }));
-}
+// Allow access from anywhere
+// Note: If you need to allow credentials from any origin, use:
+// app.use(cors({ origin: true, credentials: true }));
+app.use(cors());
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -164,4 +162,3 @@ const startServer = async () => {
 startServer();
 
 module.exports = app;
-
